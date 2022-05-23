@@ -1,10 +1,13 @@
-import React from 'react'
+import React, { useState } from 'react'
 
 export const Content = () => {
+    const [name, setName] = useState('Oscar')
+    const [count, setCount] = useState(0)
+
     const handleNameChange = () => {
         const names = ['fulano', 'fulanito', 'fulanote']
         const randomName = names[Math.floor(Math.random() * names.length)]
-        return randomName;
+        setName(randomName)
     }
 
     const handleClick = () => {
@@ -20,13 +23,13 @@ export const Content = () => {
     }
 
     return (
-        <div>
+        <main>
             <p onDoubleClick={handleClick}>
-                Hello {handleNameChange()}!!!
+                Hello {name}!!! and count is {count}
             </p>
-            <button onClick={handleClick} >Click me</button>
-            <button onClick={() => callName('Oscar')} >Click me to show name</button>
+            <button onClick={handleNameChange} >Click me</button>
+            <button onClick={() => setCount(count + 1)} >Click me to show name</button>
             <button onClick={(e) => showEvents(e)} >Click me to show events</button>
-        </div>
+        </main>
     )
 }
