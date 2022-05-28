@@ -6,7 +6,7 @@ export const Content = () => {
         {
             id: 1,
             item: 'Item 1',
-            checked: false
+            checked: true
         },
         {
             id: 2,
@@ -20,19 +20,38 @@ export const Content = () => {
         },
     ])
 
+    const handleCheck = (id) => {
+        const listItems = items.map(item => item.id === id ? { ...item, checked: !item.checked } : item);
+        setItems(listItems);
+        localStorage.setItem('todoListItems', JSON.stringify(listItems));
+    }
 
+    const handleDelete = (id) => {
+        const listItems = items.filter(item => item.id !== id);
+        setItems(listItems);
+        localStorage.setItem('todoListItems', JSON.stringify(listItems));
+    }
 
     return (
         <main>
-            <ul>
-            {items.map(data => (
-                <li className='item' key={data.id}>
-                    <input type='checkbox' checked={data.checked} onChange={() => {}} />
-                    <label>{data.item}</label>
-                    <FaTrashAlt role="button" tabIndex="0" />
-                </li>
-            ))}
-            </ul>
+            {items.length ? (<ul>
+                {items.map(data => (
+                    <li className='item' key={data.id}>
+                        <input
+                            type='checkbox'
+                            checked={data.checked}
+                            onChange={() => handleCheck(data.id)}
+                        />
+                        <label
+                            onDoubleClick={() => handleCheck(data.id)}
+                        >{data.item}</label>
+                        <FaTrashAlt
+                            onClick={() => handleDelete(data.id)}
+                            role="button"
+                            tabIndex="0" />
+                    </li>
+                ))}
+            </ul>) : (<p>No items to show</p>)}
         </main>
     )
 }
