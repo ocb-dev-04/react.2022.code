@@ -1,10 +1,10 @@
 import React from 'react'
 
-export const Footer = () => {
-    const today = new Date();
+const Footer = ({ itemsCount }) => {
   return (
     <footer>
-<p>Copyright &copy; {today.getFullYear()}</p>
+      <p>Total {itemsCount === 1 ? "item" : "items"}: {itemsCount}</p>
     </footer>
   )
 }
+export default Footer

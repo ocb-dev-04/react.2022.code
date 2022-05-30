@@ -1,6 +1,6 @@
 import React from 'react'
 
-function Header() {
+function Header({ title }) {
     const headerStyle = {
         backgroundColor: 'royalblue',
         color: 'white',
@@ -8,7 +8,7 @@ function Header() {
 
     return (
         <header style={headerStyle}>
-            <h1>Groceries List</h1>
+            <h1>{title}</h1>
         </header>
     )
 }
