@@ -7,7 +7,7 @@ const LineItem = ({
     handleDelete
 }) => {
     return (
-        <li className='item' key={data.id}>
+        <li className='item'>
             <input
                 type='checkbox'
                 checked={data.checked}

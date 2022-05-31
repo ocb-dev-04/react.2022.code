@@ -10,14 +10,14 @@ import ItemList from './ItemList'
    
 
     return (
-        <main>
+        <>
             {items.length ? (
             <ItemList 
                 items = {items}
                 handleCheck={handleCheck}
                 handleDelete={handleDelete}/>
             ) : (<p>No items to show</p>)}
-        </main>
+        </>
     )
 }
 
