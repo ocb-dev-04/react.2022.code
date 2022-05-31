@@ -1,9 +1,19 @@
 {
   "items": [
     {
-      "id": "abcd-efgh-ijkl-mnop-qrst-vwxy-z",
-      "checked": false,
-      "item": "Almonds, Unsalted, in the blue bag"
+      "id": "6c59b3c8-7337-4592-a4d3-4cef029cd8cd",
+      "item": "Candy",
+      "checked": true
+    },
+    {
+      "id": "02ec6105-f976-48b3-9055-9cb5cb522ec3",
+      "item": "Juice",
+      "checked": false
+    },
+    {
+      "id": "e2e2c6de-cc80-4bdb-8336-34ceb926c8fa",
+      "item": "Banana",
+      "checked": true
     }
   ]
 }
