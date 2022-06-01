@@ -1,25 +1,29 @@
-import logo from './logo.svg';
-import './App.css';
+import { Route, Switch, useHistory } from 'react-router-dom';
+import { useState, useEffect } from 'react';
+
+import Header from './components/Header';
+import Nav from './components/Nav';
+import Footer from './components/Footer';
+
+import Home from './pages/Home';
+import NewPost from './pages/NewPost';
+import PostList from './pages/PostList';
+import About from './pages/About';
+import Missing from './pages/Missing';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className='App'>
+      <Header />
+      <Nav />
+      <Home />
+      <NewPost />
+      <PostList />
+      <About />
+      <Missing />
+      <Footer />
     </div>
-  );
+  )
 }
 
-export default App;
+export default App
