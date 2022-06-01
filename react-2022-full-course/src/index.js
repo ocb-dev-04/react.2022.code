@@ -5,14 +5,13 @@ import App from './App';
 
 import { 
   BrowserRouter as Router, 
-  Route 
+  Route,
+  Routes
 } from 'react-router-dom';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <Router>
-      <Route path="/" component={App} />
-    </Router>
+    <App />
   </React.StrictMode>
 );

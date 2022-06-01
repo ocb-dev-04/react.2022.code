@@ -1,5 +1,5 @@
-import { Route, Switch, useHistory } from 'react-router-dom';
-import { useState, useEffect } from 'react';
+// import { Route, Switch, useHistory } from 'react-router-dom';
+// import { useState, useEffect } from 'react';
 
 import Header from './components/Header';
 import Nav from './components/Nav';
