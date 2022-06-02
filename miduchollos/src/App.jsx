@@ -1,23 +1,50 @@
 import "./App.css";
-import { Route, Routes, Link, useParams } from "react-router-dom";
+import { 
+  Route, 
+  Routes, 
+  Link, 
+  useParams, 
+  Outlet 
+} from "react-router-dom";
 
 const Home = () => <h1>Home</h1>;
 
-const Details = () => <h1>Details</h1>;
+const TacoDetails = () => {
+  const { taco } = useParams();
+
+  return <h1>Taco Details - {taco}</h1>;
+};
 
 const SearchPage = () => {
-  const tacos = ['cochinita','al pastor', 'al limon', 'asada', 'lengua', 'pollo', 'ranchera', 'veggie']
+  const tacos = [
+    "cochinita",
+    "al pastor",
+    "al limon",
+  ];
+
   return (
     <div>
       <h1>Search</h1>
-      {tacos.map(taco => <li key={taco}><Link to={`/tacos/${taco}`}>{taco}</Link></li>)}
+      {tacos.map((taco) => (
+        <li key={taco}>
+          <Link to={`/tacos/${taco}`}>{taco}</Link>
+        </li>
+      ))}
     </div>
-  )
-}
+  );
+};
 
 const Tacos = () => {
-  const { name } = useParams()
-  return (<h1>Tacos - ParamValue is: {name}</h1>)
+  const { taco } = useParams();
+
+  return (
+    <div>
+      <h1>Tacos</h1>
+      <h2>{taco}</h2>
+      <Link to="details">Ir a detalles</Link>
+      <Outlet />
+    </div>
+  );
 };
 
 function App() {
@@ -28,19 +55,23 @@ function App() {
 
         <nav>
           <ul>
-            <li><Link to="/">Home</Link></li>
-            <li><Link to="/search">Search</Link></li>
+            <li>
+              <Link to="/">Home</Link>
+            </li>
+            <li>
+              <Link to="/search">Search</Link>
+            </li>
           </ul>
         </nav>
-
       </header>
-      
+
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/search" element={<SearchPage />} />
-        <Route path="/tacos/:name" element={<Tacos />}>
-          <Route path="details" element={<Details />} />
+        <Route path="/tacos/:taco" element={<Tacos />}>
+          <Route path="details" element={<TacoDetails />} />
         </Route>
+        <Route path="*" element={<h1>Not Found</h1>} />
       </Routes>
     </div>
   );
